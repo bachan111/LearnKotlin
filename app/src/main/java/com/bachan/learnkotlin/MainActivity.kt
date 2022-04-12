@@ -1,11 +1,17 @@
 package com.bachan.learnkotlin
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import com.bachan.learnkotlin.base.BaseActivity
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class MainActivity : BaseActivity() {
+
+    override fun layoutId(): Int = R.layout.activity_main
+
+    override fun initData() {
+    }
+
+    override fun initView() {
+    }
+
+    override fun start() {
     }
 }
