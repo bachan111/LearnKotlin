@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/work/androidStudio/AndroidStudioWorkSpace/downloads/LearnKotlin/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/work/androidStudio/AndroidStudioWorkSpace/downloads/LearnKotlin/app/src/main/res/layout/activity_splash.xml" value="0.4026268115942029" />
         <entry key="..\:/work/androidStudio/AndroidStudioWorkSpace/downloads/LearnKotlin/app/src/main/res/layout/empty_view.xml" value="0.4026268115942029" />
+        <entry key="..\:/work/androidStudio/AndroidStudioWorkSpace/downloads/LearnKotlin/app/src/main/res/layout/fragment_home.xml" value="0.153125" />
+        <entry key="..\:/work/androidStudio/AndroidStudioWorkSpace/downloads/LearnKotlin/app/src/main/res/layout/fragment_hot.xml" value="0.29635416666666664" />
+        <entry key="..\:/work/androidStudio/AndroidStudioWorkSpace/downloads/LearnKotlin/app/src/main/res/layout/item_home_banner.xml" value="0.32135416666666666" />
+        <entry key="..\:/work/androidStudio/AndroidStudioWorkSpace/downloads/LearnKotlin/app/src/main/res/layout/layout_empty_view.xml" value="0.29635416666666664" />
       </map>
     </option>
   </component>
