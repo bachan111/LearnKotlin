@@ -1,19 +1,3 @@
 <resources>
     <string name="app_name">LearnKotlin</string>
-
-    <string name="loading">正在加载中&#8230;</string>
-
-    <string name="home">首页</string>
-    <string name="system">体系</string>
-    <string name="discovery">发现</string>
-    <string name="navigation">导航</string>
-    <string name="mine">我的</string>
-
-    <string name="search_hint">搜索关键词以空格隔开</string>
-
-    <string name="popular_articles">热门</string>
-    <string name="latest_project">最新</string>
-    <string name="plaza">广场</string>
-    <string name="project_category">项目</string>
-    <string name="wechat_public">公众号</string>
 </resources>
