@@ -19,21 +19,16 @@ android {
         consumerProguardFiles "consumer-rules.pro"
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
-    resourcePrefix "base_"
+    resourcePrefix "common_"
 }
 
 kapt {
@@ -43,36 +38,11 @@ kapt {
 }
 
 dependencies {
-
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
-    api AndroidX.CoreKtx
-    api AndroidX.AppCompat
-    api AndroidX.ConstraintLayout
-    api AndroidX.ActivityKtx
-    api AndroidX.FragmentKtx
+    api project(path: ':lib_base')
 
-    api Kotlin.Kotlin
-    api Kotlin.CoroutinesCore
-    api Kotlin.CoroutinesAndroid
-
-    api JetPack.LifecycleRuntimeKtx
-    api JetPack.LifecycleViewModel
-    api JetPack.LifecycleViewModelKtx
-    api JetPack.HiltLifecycleViewModel
-    api JetPack.HiltDaggerAndroid
-
-    api GitHub.OkHttp
-    api GitHub.OkHttpInterceptorLogging
-    api GitHub.Retrofit
-    api GitHub.RetrofitConverterGson
-    api GitHub.Gson
-    api GitHub.MMKV
-    api GitHub.AutoSize
-    api GitHub.Glide
-    api GitHub.ARoute
-    api GitHub.RecyclerViewAdapter
-
+    implementation JetPack.HiltDaggerAndroid
     kapt JetPack.HiltDaggerCompiler
     kapt JetPack.Hilt
     kapt GitHub.GlideCompiler

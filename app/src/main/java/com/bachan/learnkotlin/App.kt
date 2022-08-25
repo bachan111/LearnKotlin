@@ -2,13 +2,14 @@ package com.bachan.learnkotlin
 
 import androidx.multidex.MultiDex
 import com.bachan.base.BaseApp
+import com.bachan.common.CommonApp
 
 
-class App : BaseApp() {
+class App : CommonApp() {
 
     override fun onCreate() {
-        super.onCreate()
         MultiDex.install(this)
+        super.onCreate()
     }
 
 }

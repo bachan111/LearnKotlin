@@ -63,6 +63,6 @@ dependencies {
     if (!BuildConfig.isAppMode) {
         implementation project(path: ':lib_main')
     } else {
-        implementation project(path: ':lib_base')
+        implementation project(path: ':lib_common')
     }
 }

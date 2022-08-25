@@ -6,7 +6,7 @@
         android:name="com.bachan.base.BaseApp"
         android:allowBackup="true"
         android:label="@string/main_app_name"
-        android:theme="@style/AppTheme">
+        android:theme="@style/base_AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
