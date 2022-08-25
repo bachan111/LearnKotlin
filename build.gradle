@@ -12,8 +12,6 @@ buildscript {
     dependencies {
         classpath ProjectPluginManager.AndroidToolsPlugin
         classpath ProjectPluginManager.KotlinPlugin
-        classpath ProjectPluginManager.DaggerHiltPlugin
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10'
     }
 }
 
