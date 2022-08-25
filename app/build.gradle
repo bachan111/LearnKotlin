@@ -61,7 +61,7 @@ dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation AndroidX.MultiDex
     if (!BuildConfig.isAppMode) {
-//        implementation project(path: ':Lib_Main')
+        implementation project(path: ':lib_main')
     } else {
         implementation project(path: ':lib_base')
     }

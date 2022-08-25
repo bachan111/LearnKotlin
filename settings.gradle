@@ -1,3 +1,4 @@
 rootProject.name = "LearnKotlin"
 include ':app'
 include ':lib_base'
+include ':lib_main'
