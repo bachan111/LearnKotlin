@@ -9,26 +9,33 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.alibaba.android.arouter.launcher.ARouter
+import com.quyunshuo.base.mvvm.v.FrameView
 import com.quyunshuo.base.utils.EventBusRegister
 import com.quyunshuo.base.utils.EventBusUtils
+import java.lang.reflect.ParameterizedType
 
-abstract class BaseFrameFragment<VB : ViewBinding, VM : ViewModel>(private val vmClass: Class<VM>) :
-    Fragment() {
-    protected val mViewModel: VM by lazy(mode = LazyThreadSafetyMode.NONE) {
-        ViewModelProvider(this).get(vmClass)
+abstract class BaseFrameFragment<VB : ViewBinding, VM : ViewModel> :
+    Fragment() , FrameView {
+
+    protected val mBinding: VB by lazy(mode = LazyThreadSafetyMode.NONE) {
+        val vbClass: Class<VB> =
+            (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VB>
+        val inflate = vbClass.getDeclaredMethod("inflate", LayoutInflater::class.java)
+        inflate.invoke(null, layoutInflater) as VB
     }
 
-    protected val mBinding: VB by lazy(mode = LazyThreadSafetyMode.NONE) { initViewBinding() }
-
-    protected abstract fun initViewBinding(): VB
-
-    protected abstract fun initView()
+    protected val mViewModel: VM by lazy(mode = LazyThreadSafetyMode.NONE) {
+        val vmClass: Class<VM> =
+            (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[1] as Class<VM>
+        ViewModelProvider(this).get(vmClass)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return mBinding.root
     }
 

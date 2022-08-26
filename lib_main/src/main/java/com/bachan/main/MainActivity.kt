@@ -14,11 +14,8 @@ import org.greenrobot.eventbus.Subscribe
 
 @EventBusRegister
 @Route(path = RouteUrl.MainActivity)
-class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(MainViewModel::class.java) {
+class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
-
-    override fun initViewBinding(): ActivityMainBinding =
-        ActivityMainBinding.inflate(layoutInflater)
 
     override fun initView() {
         mViewModel.msg.observe(this) {
