@@ -20,11 +20,13 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(MainViewMo
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
         }
         mBinding.mTv.setOnClickListener {
-            mViewModel.getString()
+            mViewModel.getTestString()
         }
         mBinding.mIntentBtn.setOnClickListener{
-            ARouter.getInstance().build(RouteUrl.MainActivity2)
-                .withString(RouteKey.KEY_NAME,"ARouter").navigation()
+//            ARouter.getInstance().build(RouteUrl.MainActivity2)
+//                .withString(RouteKey.KEY_NAME,"ARouter").navigation()
+
+            mViewModel.getTestString()
         }
     }
 }
