@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.alibaba.android.arouter.launcher.ARouter
+import com.quyunshuo.base.utils.EventBusRegister
+import com.quyunshuo.base.utils.EventBusUtils
 
 abstract class BaseFrameActivity<VB : ViewBinding, VM : ViewModel>(private val vmClass: Class<VM>) :
     AppCompatActivity() {
@@ -21,9 +23,20 @@ abstract class BaseFrameActivity<VB : ViewBinding, VM : ViewModel>(private val v
         setContentView(mBinding.root)
         // ARouter 依赖注入
         ARouter.getInstance().inject(this)
+
+        // 注册EventBus
+        if (javaClass.isAnnotationPresent(EventBusRegister::class.java)) EventBusUtils.register(this)
+
         initView()
     }
 
     protected abstract fun initViewBinding(): VB
     protected abstract fun initView()
+
+    override fun onDestroy() {
+        if (javaClass.isAnnotationPresent(EventBusRegister::class.java)) EventBusUtils.unRegister(
+            this
+        )
+        super.onDestroy()
+    }
 }

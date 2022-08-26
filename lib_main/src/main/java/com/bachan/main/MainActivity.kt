@@ -2,11 +2,17 @@ package com.bachan.main
 import android.widget.Toast
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
+import com.bachan.base.ktx.toast
+import com.bachan.base.utlis.sendEvent
 import com.bachan.common.constant.RouteKey
 import com.bachan.common.constant.RouteUrl
+import com.bachan.common.entities.TestBean
 import com.bachan.common.ui.BaseActivity
 import com.bachan.main.databinding.ActivityMainBinding
+import com.quyunshuo.base.utils.EventBusRegister
+import org.greenrobot.eventbus.Subscribe
 
+@EventBusRegister
 @Route(path = RouteUrl.MainActivity)
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(MainViewModel::class.java) {
 
@@ -28,5 +34,12 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(MainViewMo
 
             mViewModel.getTestString()
         }
+
+        sendEvent(TestBean("EventBus"))
+    }
+
+    @Subscribe
+    fun onEvent(event: TestBean) {
+        toast(event.msgTest)
     }
 }
