@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.alibaba.android.arouter.launcher.ARouter
 import com.quyunshuo.base.mvvm.v.FrameView
+import com.quyunshuo.base.utils.BindingReflex
 import com.quyunshuo.base.utils.EventBusRegister
 import com.quyunshuo.base.utils.EventBusUtils
 import java.lang.reflect.ParameterizedType
@@ -18,16 +19,11 @@ abstract class BaseFrameFragment<VB : ViewBinding, VM : ViewModel> :
     Fragment() , FrameView {
 
     protected val mBinding: VB by lazy(mode = LazyThreadSafetyMode.NONE) {
-        val vbClass: Class<VB> =
-            (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<VB>
-        val inflate = vbClass.getDeclaredMethod("inflate", LayoutInflater::class.java)
-        inflate.invoke(null, layoutInflater) as VB
+        BindingReflex.reflexViewBinding(javaClass, layoutInflater)
     }
 
     protected val mViewModel: VM by lazy(mode = LazyThreadSafetyMode.NONE) {
-        val vmClass: Class<VM> =
-            (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[1] as Class<VM>
-        ViewModelProvider(this).get(vmClass)
+        BindingReflex.reflexViewModel(javaClass, this)
     }
 
     override fun onCreateView(

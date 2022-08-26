@@ -12,6 +12,7 @@ class MainActivity2 : BaseActivity<ActivityMainBinding, MainViewModel>() {
     @Autowired(name = RouteKey.KEY_NAME)
     lateinit var name: String
 
+    @Override
     override fun initView() {
         toast(name)
     }
