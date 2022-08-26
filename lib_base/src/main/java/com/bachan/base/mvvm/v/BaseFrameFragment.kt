@@ -1,4 +1,4 @@
-package com.bachan.base.v
+package com.bachan.base.mvvm.v
 
 import android.os.Bundle
 import android.view.LayoutInflater

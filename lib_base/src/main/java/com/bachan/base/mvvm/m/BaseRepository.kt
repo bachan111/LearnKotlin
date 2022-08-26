@@ -1,4 +1,4 @@
-package com.bachan.base.m
+package com.bachan.base.mvvm.m
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.FlowCollector

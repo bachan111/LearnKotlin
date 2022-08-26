@@ -6,10 +6,9 @@ import com.bachan.common.CommonApp
 
 
 class App : CommonApp() {
-
-    override fun onCreate() {
+    override fun initialize() {
         MultiDex.install(this)
-        super.onCreate()
+        super.initialize()
     }
 
 }

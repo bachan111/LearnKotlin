@@ -2,7 +2,7 @@ package com.bachan.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.bachan.base.vm.BaseViewModel
+import com.bachan.base.mvvm.vm.BaseViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
